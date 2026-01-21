@@ -5,16 +5,7 @@ author: "JIN QINHAO"
 
 # Getting Started
 
-## Install and launching R packages
-
-The code chunk below uses p_load() of pacman packa---
-
-title: "Hands-on Exercise 2"
-
-author: "JIN QINHAO"
-
----ge to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.
-
+## Installing and loading the required libraries
 ```{r}
 pacman::p_load(ggrepel, patchwork, 
                ggthemes, hrbrthemes,
@@ -133,6 +124,7 @@ p1 <- ggplot(data=exam_data,
                  fill="grey90") + 
   coord_cartesian(xlim=c(0,100)) +
   ggtitle("Distribution of Maths scores")
+p1
 ```
 
 ```{r}
@@ -144,7 +136,9 @@ p2 <- ggplot(data=exam_data,
                  fill="grey90") +
   coord_cartesian(xlim=c(0,100)) +
   ggtitle("Distribution of English scores")
+p2
 ```
+
 
 ```{r}
   p3 <- ggplot(data=exam_data, 
@@ -156,6 +150,7 @@ p2 <- ggplot(data=exam_data,
   coord_cartesian(xlim=c(0,100),
                   ylim=c(0,100)) +
   ggtitle("English scores versus Maths scores for Primary 3")
+p3
 ```
 
 ### Combining two ggplot2 graphs
