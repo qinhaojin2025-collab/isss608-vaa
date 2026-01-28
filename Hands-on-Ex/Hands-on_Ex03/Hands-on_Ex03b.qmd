@@ -62,7 +62,7 @@ ggplot(globalPop, aes(x = Old, y = Young,
 
 ### **Building an animated bubble plot: method `ggplotly()`**
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 gg <- ggplot(globalPop, 
        aes(x = Old, 
            y = Young, 
@@ -80,7 +80,7 @@ gg <- ggplot(globalPop,
 ggplotly(gg)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 gg <- ggplot(globalPop, 
        aes(x = Old, 
            y = Young, 
@@ -100,7 +100,7 @@ ggplotly(gg)
 
 ### **Building an animated bubble plot: method `plot_ly()`**
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 bp <- globalPop %>%
   plot_ly(x = ~Old, 
           y = ~Young, 
