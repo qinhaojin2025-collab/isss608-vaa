@@ -1,0 +1,91 @@
+---
+title: "Hands-on Exercise 4b"
+author: "JIN QINHAO"
+---
+
+## **Getting Started**
+
+### **Installing and launching R packages**
+
+```{r}
+pacman::p_load(ggstatsplot, tidyverse)
+```
+
+### **Importing data**
+
+```{r}
+exam <- read_csv("data/Exam_data.csv")
+```
+
+## **One-sample test: *gghistostats()* method**
+
+```{r}
+set.seed(1234)
+
+gghistostats(
+  data = exam,
+  x = ENGLISH,
+  type = "bayes",
+  test.value = 60,
+  xlab = "English scores"
+)
+```
+
+### **Two-sample mean test: *ggbetweenstats()***
+
+```{r}
+ggbetweenstats(
+  data = exam,
+  x = GENDER, 
+  y = MATHS,
+  type = "np",
+  messages = FALSE
+)
+```
+
+### **Oneway ANOVA Test: *ggbetweenstats()* method**
+
+```{r}
+ggbetweenstats(
+  data = exam,
+  x = RACE, 
+  y = ENGLISH,
+  type = "p",
+  mean.ci = TRUE, 
+  pairwise.comparisons = TRUE, 
+  pairwise.display = "s",
+  p.adjust.method = "fdr",
+  messages = FALSE
+)
+
+
+```
+
+### **Significant Test of Correlation: *ggscatterstats()***
+
+```{r}
+ggscatterstats(
+  data = exam,
+  x = MATHS,
+  y = ENGLISH,
+  marginal = FALSE,
+  )
+```
+
+### **Significant Test of Association (Depedence) : *ggbarstats()* methods**
+
+```{r}
+exam1 <- exam %>% 
+  mutate(MATHS_bins = 
+           cut(MATHS, 
+               breaks = c(0,60,75,85,100))
+)
+```
+
+```{r}
+ggbarstats(exam1, 
+           x = MATHS_bins, 
+           y = GENDER)
+
+
+```
