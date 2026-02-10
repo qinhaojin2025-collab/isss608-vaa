@@ -3,30 +3,48 @@ project:
 
 website:
   title: "ISSS608-VAA"
-  navbar:
-    left:
-     - text: "Hands-on Exercise"
-       menu: 
+  search: true
+
+  sidebar:
+    - title: "Hands-on Exercise"
+      contents:
         - text: "Hands-on Exercise 1"
           href: "Hands-on-Ex/Hands-on_Ex01/Hands-on_Ex01.html"
+
         - text: "Hands-on Exercise 2"
-          href: "Hands-on-Ex/Hands-on_Ex02/Hands-on_Ex02.html" 
-        - text: "Hands-on Exercise 3a"
-          href: "Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03a.html"
-        - text: "Hands-on Exercise 3b"
-          href: "Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03b.html"
-        - text: "Hands-on Exercise 4a"
-          href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04a.html"
-        - text: "Hands-on Exercise 4b"
-          href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04b.html"
-        - text: "Hands-on Exercise 4c"
-          href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04c.html"
-        - text: "Hands-on Exercise 4d"
-          href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04d.html"
-    right:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+          href: "Hands-on-Ex/Hands-on_Ex02/Hands-on_Ex02.html"
+
+        - section: "Hands-on Exercise 3"
+          contents:
+            - text: "Exercise 3a"
+              href: "Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03a.html"
+            - text: "Exercise 3b"
+              href: "Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03b.html"
+
+        - section: "Hands-on Exercise 4"
+          contents:
+            - text: "Exercise 4a"
+              href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04a.html"
+            - text: "Exercise 4b"
+              href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04b.html"
+            - text: "Exercise 4c"
+              href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04c.html"
+            - text: "Exercise 4d"
+              href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04d.html"
+
+        - section: "Hands-on Exercise 5"
+          contents:
+            - text: "Exercise 5a"
+              href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05a.html"
+            - text: "Exercise 5b"
+              href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05b.html"
+            - text: "Exercise 5c"
+              href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05c.html"
+            - text: "Exercise 5d"
+              href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05d.html"
+            - text: "Exercise 5e"
+              href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05e.html"
+
     
 format: 
   html: 
@@ -35,6 +53,12 @@ format:
       - pulse
     css: styles,css
     toc: true 
+    
+    
+editor: visual
+
+execute: 
+  freeze: auto
   
 
       
