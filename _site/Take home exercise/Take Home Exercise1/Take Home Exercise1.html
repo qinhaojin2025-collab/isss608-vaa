@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JIN QINHAO">
+
+<title>Take Home Exercise 1 – ISSS608-VAA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f0ce33e197939f0be494a512cd80cdce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ISSS608-VAA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Take home exercise/Take Home Exercise1/Take Home Exercise1.html">Take Home Exercise</a></li><li class="breadcrumb-item"><a href="../../Take home exercise/Take Home Exercise1/Take Home Exercise1.html">Hands-on Exercise 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hands-on Exercise</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex01/Hands-on_Ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hands-on Exercise 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex02/Hands-on_Ex02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hands-on Exercise 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Hands-on Exercise 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex03/Hands-on_Ex03b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 3b</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Hands-on Exercise 4</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 4a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 4b</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 4c</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 4d</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Hands-on Exercise 5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 5a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 5b</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 5c</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 5d</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05e.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise 5e</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Take Home Exercise</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Take home exercise/Take Home Exercise1/Take Home Exercise1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hands-on Exercise 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#visual-driven-investigation-and-analysis" id="toc-visual-driven-investigation-and-analysis" class="nav-link active" data-scroll-target="#visual-driven-investigation-and-analysis">Visual-driven investigation and analysis:</a></li>
+  <li><a href="#dataset-of-factors-affecting-learning-outcomes-of-students-at-the-university-of-educationvietnam-national-university-hanoi" id="toc-dataset-of-factors-affecting-learning-outcomes-of-students-at-the-university-of-educationvietnam-national-university-hanoi" class="nav-link" data-scroll-target="#dataset-of-factors-affecting-learning-outcomes-of-students-at-the-university-of-educationvietnam-national-university-hanoi">Dataset of factors affecting learning outcomes of students at the University of Education,Vietnam National University, Hanoi</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><strong>1 Introduction</strong></a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><strong>1.1 Background</strong></a></li>
+  <li><a href="#our-task" id="toc-our-task" class="nav-link" data-scroll-target="#our-task"><strong>1.2 Our Task</strong></a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><strong>2 Getting Started</strong></a>
+  <ul class="collapse">
+  <li><a href="#setting-the-analytical-tools" id="toc-setting-the-analytical-tools" class="nav-link" data-scroll-target="#setting-the-analytical-tools"><strong>2.1 Setting the Analytical Tools</strong></a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data"><strong>2.2 Importing Data</strong></a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><strong>2.3 Data Cleaning</strong></a></li>
+  </ul></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><strong>3</strong> Visualization</a>
+  <ul class="collapse">
+  <li><a href="#study-the-relationship-between-study-time-and-gpa" id="toc-study-the-relationship-between-study-time-and-gpa" class="nav-link" data-scroll-target="#study-the-relationship-between-study-time-and-gpa">3.1Study the relationship between study time and GPA</a></li>
+  <li><a href="#use-a-scatter-plot-and-a-smooth-line-to-study-time_socialmedia-vs-gpa" id="toc-use-a-scatter-plot-and-a-smooth-line-to-study-time_socialmedia-vs-gpa" class="nav-link" data-scroll-target="#use-a-scatter-plot-and-a-smooth-line-to-study-time_socialmedia-vs-gpa">3.2 Use a scatter plot and a smooth line to study: Time_SocialMedia vs GPA</a></li>
+  <li><a href="#use-heat-maps-to-study-the-relationship-between-multiple-variables-and-gpa." id="toc-use-heat-maps-to-study-the-relationship-between-multiple-variables-and-gpa." class="nav-link" data-scroll-target="#use-heat-maps-to-study-the-relationship-between-multiple-variables-and-gpa.">3.3 Use heat maps to study the relationship between multiple variables and GPA.</a></li>
+  <li><a href="#study-the-influence-of-study-methods-on-gpa-through-combination-charts." id="toc-study-the-influence-of-study-methods-on-gpa-through-combination-charts." class="nav-link" data-scroll-target="#study-the-influence-of-study-methods-on-gpa-through-combination-charts.">3.4 Study the influence of Study Methods on GPA through combination charts.</a></li>
+  <li><a href="#study-the-distribution-of-scores-given-by-different-genders-in-terms-of-teaching-quality-learning-methods-and-study-time." id="toc-study-the-distribution-of-scores-given-by-different-genders-in-terms-of-teaching-quality-learning-methods-and-study-time." class="nav-link" data-scroll-target="#study-the-distribution-of-scores-given-by-different-genders-in-terms-of-teaching-quality-learning-methods-and-study-time.">3.5 Study the distribution of scores given by different genders in terms of teaching quality, learning methods and study time.</a></li>
+  <li><a href="#the-distribution-differences-in-learning-behaviors-among-different-gpa-groups-and-the-proportion-structure-of-high-and-low-learning-levels-were-studied." id="toc-the-distribution-differences-in-learning-behaviors-among-different-gpa-groups-and-the-proportion-structure-of-high-and-low-learning-levels-were-studied." class="nav-link" data-scroll-target="#the-distribution-differences-in-learning-behaviors-among-different-gpa-groups-and-the-proportion-structure-of-high-and-low-learning-levels-were-studied.">3.6 The distribution differences in learning behaviors among different GPA groups and the proportion structure of high and low learning levels were studied.</a></li>
+  </ul></li>
+  <li><a href="#summary-and-conclusion" id="toc-summary-and-conclusion" class="nav-link" data-scroll-target="#summary-and-conclusion">4 Summary and conclusion</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">5 Reference</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Take home exercise/Take Home Exercise1/Take Home Exercise1.html">Take Home Exercise</a></li><li class="breadcrumb-item"><a href="../../Take home exercise/Take Home Exercise1/Take Home Exercise1.html">Hands-on Exercise 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Take Home Exercise 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>JIN QINHAO </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="visual-driven-investigation-and-analysis" class="level1">
+<h1>Visual-driven investigation and analysis:</h1>
+</section>
+<section id="dataset-of-factors-affecting-learning-outcomes-of-students-at-the-university-of-educationvietnam-national-university-hanoi" class="level1">
+<h1>Dataset of factors affecting learning outcomes of students at the University of Education,Vietnam National University, Hanoi</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><strong>1 Introduction</strong></h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background"><strong>1.1 Background</strong></h3>
+<p>For a long time, students’ learning outcomes have always been a very important topic. According to existing research, students’ academic performance is not only related to personal factors but also influenced by multiple factors such as family background, teacher support, and school resources.</p>
+<p>Students’ learning motivation, teachers’ teaching ability, the campus support system environment and the rationality of course arrangement will all have an impact on students’ learning outcomes. In the information age, against the backdrop of digitalization, the educational environment is constantly evolving, and an increasing number of factors will become new variables. Therefore, systematic data analysis is needed to conduct the research.</p>
+<p>In response to this, the VNU University of Education of Vietnam National University, Hanoi, conducted a systematic questionnaire survey. This data covers students’ demographic characteristics, their perception of the university learning environment, and academic performance indicators such as GPA.</p>
+</section>
+<section id="our-task" class="level3">
+<h3 class="anchored" data-anchor-id="our-task"><strong>1.2 Our Task</strong></h3>
+<p>Analyze and interpret the results and deduce decisions through descriptive methods and reasoning methods.</p>
+</section>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started"><strong>2 Getting Started</strong></h2>
+<section id="setting-the-analytical-tools" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-analytical-tools"><strong>2.1 Setting the Analytical Tools</strong></h3>
+<p>We load the following R packages using the function:<code>pacman::p_load()</code></p>
+<ul>
+<li><p><strong>tidyverse</strong>: Core collection of R packages designed for data science</p></li>
+<li><p><strong>haven</strong>: To read in data formats such as SAS and SPSS</p></li>
+<li><p><strong>ggrepel</strong>: to provides geoms for <strong>ggplot2</strong> to repel overlapping text labels</p></li>
+<li><p><strong>ggthemes</strong>: to use additional themes for <strong>ggplot2</strong></p></li>
+<li><p><strong>patchwork</strong>: to prepare composite figure created using <strong>ggplot2</strong></p></li>
+<li><p><strong>ggridges</strong>: to plot ridgeline plots</p></li>
+<li><p><strong>ggdist</strong>: for visualizations of distributions and uncertainty</p></li>
+<li><p><strong>scales</strong>: provides the internal scaling infrastructure used by <strong>ggplot2</strong></p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">library</span>(<span class="st">"lubridate"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               ggrepel, ggthemes,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               ggridges, ggdist,colorspace,ggdist,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               patchwork, scales,janitor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data"><strong>2.2 Importing Data</strong></h3>
+<p>For the purpose of this exercise, Database paper.csv will be used.</p>
+<p>In the code chunk below, read_csv() of readr package is used to import Exam_data.csv into R and saved it into a tibble data.frame.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Exam <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Database paper.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2170 Columns: 22
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (22): Year, Gender, Policy_Stu, Minority_Stu, Poor_Stu, Father_Edu, Moth...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning"><strong>2.3 Data Cleaning</strong></h3>
+<p>First, we need to check the data to see how many rows and columns it has, as well as the types of the variables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Exam)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,170
+Columns: 22
+$ Year               &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
+$ Gender             &lt;dbl&gt; 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, …
+$ Policy_Stu         &lt;dbl&gt; 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, …
+$ Minority_Stu       &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+$ Poor_Stu           &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+$ Father_Edu         &lt;dbl&gt; 4, 3, 4, 5, 2, 5, 6, 5, 5, 5, 3, 3, 3, 3, 3, 4, 5, …
+$ Mother_Edu         &lt;dbl&gt; 4, 3, 4, 4, 3, 5, 5, 4, 5, 4, 3, 3, 3, 4, 3, 4, 5, …
+$ Father_Occupation  &lt;dbl&gt; 2, 2, 1, 1, 3, 1, 1, 5, 1, 3, 3, 3, 3, 3, 2, 2, 4, …
+$ Mother_Occupation  &lt;dbl&gt; 3, 4, 2, 1, 3, 2, 4, 3, 1, 3, 3, 3, 3, 3, 2, 2, 4, …
+$ Time_Friends       &lt;dbl&gt; 2, 1, 1, 2, 1, 1, 2, 2, 1, 3, 2, 2, 2, 2, 2, 1, 3, …
+$ Time_SocicalMedia  &lt;dbl&gt; 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3, 4, …
+$ Time_Studying      &lt;dbl&gt; 5, 5, 5, 5, 1, 2, 5, 5, 5, 5, 5, 5, 5, 1, 5, 5, 5, …
+$ GPA                &lt;dbl&gt; 4, 3, 4, 4, 4, 4, 3, 5, 5, 3, 3, 4, 4, 3, 5, 4, 4, …
+$ Adapt_Learning_Uni &lt;dbl&gt; 4, 3, 4, 4, 5, 4, 4, 4, 4, 3, 4, 4, 4, 5, 4, 4, 5, …
+$ Study_Methods      &lt;dbl&gt; 4, 3, 4, 4, 5, 4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 3, 5, …
+$ SupportOf_Uni      &lt;dbl&gt; 3, 3, 4, 5, 5, 5, 5, 5, 4, 5, 4, 4, 4, 5, 4, 4, 5, …
+$ SupportOf_Lec      &lt;dbl&gt; 4, 4, 4, 5, 5, 4, 5, 4, 4, 5, 4, 4, 4, 5, 4, 4, 5, …
+$ Facilitie_Uni      &lt;dbl&gt; 4, 4, 3, 5, 5, 5, 5, 4, 4, 5, 4, 4, 4, 5, 4, 3, 5, …
+$ Quality_Lecturer   &lt;dbl&gt; 4, 3, 4, 5, 5, 5, 4, 5, 5, 5, 4, 4, 4, 5, 4, 4, 5, …
+$ TrainingCurriculum &lt;dbl&gt; 4, 3, 4, 4, 5, 4, 5, 4, 4, 5, 4, 4, 4, 5, 4, 3, 5, …
+$ Competitive_Class  &lt;dbl&gt; 3, 3, 4, 4, 4, 3, 4, 3, 4, 4, 4, 4, 4, 5, 4, 4, 5, …
+$ InfuenceF_Friends  &lt;dbl&gt; 3, 4, 4, 4, 5, 3, 5, 4, 4, 4, 4, 4, 4, 5, 4, 5, 4, …</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Exam)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Year           Gender        Policy_Stu     Minority_Stu      Poor_Stu   
+ Min.   :3.000   Min.   :1.000   Min.   :1.000   Min.   :1.000   Min.   :1.00  
+ 1st Qu.:4.000   1st Qu.:2.000   1st Qu.:1.000   1st Qu.:2.000   1st Qu.:2.00  
+ Median :5.000   Median :2.000   Median :2.000   Median :2.000   Median :2.00  
+ Mean   :4.672   Mean   :1.889   Mean   :1.647   Mean   :1.941   Mean   :1.96  
+ 3rd Qu.:5.000   3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:2.000   3rd Qu.:2.00  
+ Max.   :5.000   Max.   :2.000   Max.   :2.000   Max.   :2.000   Max.   :2.00  
+   Father_Edu      Mother_Edu    Father_Occupation Mother_Occupation
+ Min.   :1.000   Min.   :1.000   Min.   :1.000     Min.   :1.000    
+ 1st Qu.:3.000   1st Qu.:3.000   1st Qu.:2.000     1st Qu.:2.000    
+ Median :4.000   Median :4.000   Median :3.000     Median :3.000    
+ Mean   :3.747   Mean   :3.664   Mean   :2.484     Mean   :2.498    
+ 3rd Qu.:5.000   3rd Qu.:5.000   3rd Qu.:3.000     3rd Qu.:3.000    
+ Max.   :6.000   Max.   :6.000   Max.   :5.000     Max.   :5.000    
+  Time_Friends   Time_SocicalMedia Time_Studying        GPA     
+ Min.   :1.000   Min.   :1.000     Min.   :1.000   Min.   :1.0  
+ 1st Qu.:1.000   1st Qu.:2.000     1st Qu.:5.000   1st Qu.:3.0  
+ Median :2.000   Median :3.000     Median :5.000   Median :3.0  
+ Mean   :2.274   Mean   :2.836     Mean   :4.719   Mean   :3.3  
+ 3rd Qu.:3.000   3rd Qu.:4.000     3rd Qu.:5.000   3rd Qu.:4.0  
+ Max.   :5.000   Max.   :5.000     Max.   :5.000   Max.   :5.0  
+ Adapt_Learning_Uni Study_Methods   SupportOf_Uni   SupportOf_Lec  
+ Min.   :1.000      Min.   :1.000   Min.   :1.000   Min.   :1.000  
+ 1st Qu.:3.000      1st Qu.:3.000   1st Qu.:3.000   1st Qu.:4.000  
+ Median :3.000      Median :4.000   Median :4.000   Median :4.000  
+ Mean   :3.502      Mean   :3.662   Mean   :4.001   Mean   :4.186  
+ 3rd Qu.:4.000      3rd Qu.:4.000   3rd Qu.:5.000   3rd Qu.:5.000  
+ Max.   :5.000      Max.   :5.000   Max.   :5.000   Max.   :5.000  
+ Facilitie_Uni   Quality_Lecturer TrainingCurriculum Competitive_Class
+ Min.   :1.000   Min.   :1.000    Min.   :1.000      Min.   :1.000    
+ 1st Qu.:3.000   1st Qu.:4.000    1st Qu.:4.000      1st Qu.:3.000    
+ Median :4.000   Median :5.000    Median :4.000      Median :4.000    
+ Mean   :4.073   Mean   :4.329    Mean   :4.128      Mean   :3.935    
+ 3rd Qu.:5.000   3rd Qu.:5.000    3rd Qu.:5.000      3rd Qu.:5.000    
+ Max.   :5.000   Max.   :5.000    Max.   :5.000      Max.   :5.000    
+ InfuenceF_Friends
+ Min.   :1.000    
+ 1st Qu.:3.000    
+ Median :4.000    
+ Mean   :3.831    
+ 3rd Qu.:5.000    
+ Max.   :5.000    </code></pre>
+</div>
+</div>
+<p>The second step is to check if there are any duplicate values in the data. If there are, delete them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(Exam))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 226</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Exam <span class="ot">&lt;-</span> <span class="fu">distinct</span>(Exam)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The third step is to check whether the data contains NA/None</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(Exam))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Year             Gender         Policy_Stu       Minority_Stu 
+                 0                  0                  0                  0 
+          Poor_Stu         Father_Edu         Mother_Edu  Father_Occupation 
+                 0                  0                  0                  0 
+ Mother_Occupation       Time_Friends  Time_SocicalMedia      Time_Studying 
+                 0                  0                  0                  0 
+               GPA Adapt_Learning_Uni      Study_Methods      SupportOf_Uni 
+                 0                  0                  0                  0 
+     SupportOf_Lec      Facilitie_Uni   Quality_Lecturer TrainingCurriculum 
+                 0                  0                  0                  0 
+ Competitive_Class  InfuenceF_Friends 
+                 0                  0 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization"><strong>3</strong> Visualization</h2>
+<section id="study-the-relationship-between-study-time-and-gpa" class="level3">
+<h3 class="anchored" data-anchor-id="study-the-relationship-between-study-time-and-gpa">3.1Study the relationship between study time and GPA</h3>
+<p>Ridgeline Density Plot</p>
+<p>Each layer represents the distribution of study time for a GPA group (1–5).</p>
+<p>The height and width of the curve represent the data density at that time level.</p>
+<p>The more the curve is concentrated to the right, the higher the study time of this group is.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Exam <span class="sc">%&gt;%</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">GPA =</span> <span class="fu">factor</span>(GPA, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Time_Studying =</span> <span class="fu">as.numeric</span>(Time_Studying)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Time_Studying, <span class="at">y =</span> GPA, <span class="at">fill =</span> GPA)) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale =</span> <span class="fl">1.1</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.6</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.2</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Study Time by GPA Group"</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Time_Studying"</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GPA"</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.209</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Conclusion:</p>
+<p>It can be clearly seen from the graph that as the GPA grade increases, the distribution of study time shifts to the right overall. The high GPA group (4–5) has a significantly higher density in the study time score range of 4–5, indicating a higher and more concentrated level of study input. The low GPA group (1–2) has a more dispersed distribution, with a certain proportion also in the medium and low study time intervals. The overall trend shows that study time is positively correlated with GPA, but there is still overlap in the distribution, indicating that although study time is an important factor, it is not the only variable determining academic performance.</p>
+</section>
+<section id="use-a-scatter-plot-and-a-smooth-line-to-study-time_socialmedia-vs-gpa" class="level3">
+<h3 class="anchored" data-anchor-id="use-a-scatter-plot-and-a-smooth-line-to-study-time_socialmedia-vs-gpa">3.2 Use a scatter plot and a smooth line to study: Time_SocialMedia vs GPA</h3>
+<p>Based on the research data, we choose to use a scatter plot and a smooth line to study the relationship between Time_SocialMedia and GPA.</p>
+<p>Components of a chart:</p>
+<ul>
+<li><p>Scatter plot: Each point represents a student’s social media usage time and corresponding GPA.</p></li>
+<li><p>The red smooth line: It indicates the overall trend change and is used to observe the direction of the relationship between two variables.</p></li>
+<li><p>GPA 1-5 :</p>
+<p>-&nbsp;Under 2.0 – Poor (1)</p>
+<p>-&nbsp;From 2.0 to lower 2.5 – Average (2)</p>
+<p>-&nbsp;From 2.5 to lower 3.2 – Fair (3)</p>
+<p>-&nbsp;From 3.2 to lower &nbsp;3.6 – Good (4)</p>
+<p>- Over 3.6 – Excellent (5)</p></li>
+<li><p>Time_SocialMedia 1-5 :</p>
+<p>-&nbsp;under 1 hour (1)</p>
+<p>-&nbsp;from 1 to lower 2 hours (2)</p>
+<p>-&nbsp;from 2 to lower 3 hours (3)</p>
+<p>-&nbsp;from 3 to lower 4 hours (4)</p>
+<p>- over 4 hours (5)</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Exam, <span class="fu">aes</span>(<span class="at">x =</span> Time_SocicalMedia, <span class="at">y =</span> GPA)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Social Media Time vs GPA"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Social Media Time"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GPA"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Conclusion:The chart shows a slight negative correlation between social media usage time and GPA. As the usage time increases from 1 hour to 5 hours, the average GPA slightly decreases, especially when it exceeds 4 hours. However, the GPA distribution within each time period is relatively scattered, with high and low-scoring students present in different usage durations, indicating that the impact of social media usage time on academic performance is limited. Overall, the correlation between the two is weak, and social media time is not a key factor in determining GPA. Further analysis combining other variables is still needed</p>
+</section>
+<section id="use-heat-maps-to-study-the-relationship-between-multiple-variables-and-gpa." class="level3">
+<h3 class="anchored" data-anchor-id="use-heat-maps-to-study-the-relationship-between-multiple-variables-and-gpa.">3.3 Use heat maps to study the relationship between multiple variables and GPA.</h3>
+<p>The horizontal axis (Var1) and the vertical axis (Var2) represent the five variables involved in the analysis:</p>
+<ul>
+<li><p>Time_Studying</p></li>
+<li><p>Time_SocialMedia）</p></li>
+<li><p>Study_Methods</p></li>
+<li><p>Adapt_Learning_Unit</p></li>
+<li><p>GPA</p></li>
+</ul>
+<p>Color Gradient (Value)</p>
+<ul>
+<li><p>Red: Strong positive correlation (close to 1)</p></li>
+<li><p>Light color: Weak correlation</p></li>
+<li><p>Purpleish: negative correlation or close to 0</p></li>
+</ul>
+<p>Diagonal: The value of 1 on the diagonal indicates that the variable is perfectly correlated with itself.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'reshape2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:tidyr':
+
+    smiths</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>num_data <span class="ot">&lt;-</span> Exam <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Time_Studying,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>         Time_SocicalMedia,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>         Study_Methods,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>         Adapt_Learning_Uni,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>         GPA)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cor</span>(num_data)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(cor_mat) <span class="sc">%&gt;%</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Var1, Var2, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">mid =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Correlation Heatmap"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Conclusion:</p>
+<p>Study_Methods has a strong correlation with Adapt_Learning_Uni, indicating that good study methods are usually accompanied by high adaptability. GPA is positively correlated with Study_Methods and Adapt_Learning_Uni, suggesting that learning strategies and adaptability have a positive impact on academic performance. The correlation between Time_SocialMedia and GPA is relatively weak, supporting the conclusion of a “weak negative correlation” in the previous figure. There is a certain positive correlation between Time_Studying and GPA, but the intensity is not high, indicating that simply increasing study time may not significantly improve academic performance. Overall, the quality of learning (methods and adaptability) is more crucial than the mere amount of time invested.</p>
+</section>
+<section id="study-the-influence-of-study-methods-on-gpa-through-combination-charts." class="level3">
+<h3 class="anchored" data-anchor-id="study-the-influence-of-study-methods-on-gpa-through-combination-charts.">3.4 Study the influence of Study Methods on GPA through combination charts.</h3>
+<p>Given that a single box plot can only show the difference in medians, while a ridge plot can observe whether the distribution has shifted, whether it is multimodal, etc., the combined plot can simultaneously display density structure, medians, and so on.</p>
+<ul>
+<li><p>Ridgeline Plot Each layer represents the distribution of learning method scores for a GPA group. The higher and wider the curve, the greater the data density in that score range.</p></li>
+<li><p>Box plot Overlaid on each ridge plot, it shows the median and interquartile range, used to compare the central tendency and dispersion of different GPA groups.</p></li>
+<li><p>Jitter Scatter Plot It represents the actual score data of each student, avoiding overlap to present the original distribution.</p></li>
+<li><p>X-axis:-Study Methods Score</p>
+<p>- Not at all (1)</p>
+<p>- Little (2)</p>
+<p>-&nbsp;Moderate (3)</p>
+<p>-&nbsp;Quite (4)</p>
+<p>-Very (5)</p></li>
+<li><p>Vertical axis: GPA 1-5 :</p>
+<p>-&nbsp;Under 2.0 – Poor (1)</p>
+<p>-&nbsp;From 2.0 to lower 2.5 – Average (2)</p>
+<p>-&nbsp;From 2.5 to lower 3.2 – Fair (3)</p>
+<p>-&nbsp;From 3.2 to lower &nbsp;3.6 – Good (4)</p>
+<p>- Over 3.6 – Excellent (5)</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>Exam <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GPA =</span> <span class="fu">factor</span>(GPA, <span class="at">ordered =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Study_Methods,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> GPA,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> GPA)) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 山脊密度</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale =</span> <span class="dv">1</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"grey40"</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.3</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 箱线图</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.shape =</span> <span class="cn">NA</span>,</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"white"</span>,</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 抖动散点</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.05</span>,</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.25</span>,</span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">0.8</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Study Methods Score by GPA Group"</span>,</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Study Methods Score"</span>,</span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GPA"</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.258</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Conclusion：It can be clearly observed from the graph that the higher the GPA, the more the distribution of learning method scores leans towards the high-score range on the right. The median of the high GPA group (4–5) is higher and the distribution is more concentrated, indicating that their learning strategies are more mature and stable. The scores of the low GPA group (1–2) are generally lower and have a larger fluctuation range, suggesting that their learning methods are less stable or less efficient. The overall trend indicates that the quality of learning methods has a strong positive correlation with academic performance. Compared with the simple investment of time, learning strategies may be the key factor affecting grades.</p>
+</section>
+<section id="study-the-distribution-of-scores-given-by-different-genders-in-terms-of-teaching-quality-learning-methods-and-study-time." class="level3">
+<h3 class="anchored" data-anchor-id="study-the-distribution-of-scores-given-by-different-genders-in-terms-of-teaching-quality-learning-methods-and-study-time.">3.5 Study the distribution of scores given by different genders in terms of teaching quality, learning methods and study time.</h3>
+<p>Introduction to Chart Components Left side：</p>
+<ul>
+<li><p>Each layer represents the score distribution of a gender group.</p></li>
+<li><p>The higher and wider the curve, the more concentrated the data in that score range.</p></li>
+<li><p>Show separately: Quality of Lecturers (Teacher Quality) Study Methods ，Time Spent on Studying</p></li>
+<li><p>Quality_Lecturer：</p></li>
+</ul>
+<p>-&nbsp;Not at all (1)</p>
+<p>-&nbsp;Little (2)</p>
+<p>-&nbsp;Moderate (3)</p>
+<p>-&nbsp;Quite (4)</p>
+<ul>
+<li><p>Very (5)</p></li>
+<li><p>Study Methods：</p></li>
+</ul>
+<p>-&nbsp;Not at all (1)</p>
+<p>-&nbsp;Little (2)</p>
+<p>-&nbsp;Moderate (3)</p>
+<p>-&nbsp;Quite (4)</p>
+<p>- Very (5)</p>
+<ul>
+<li>Time_Studying：</li>
+</ul>
+<p>-&nbsp;under 2 hours (1)</p>
+<p>-&nbsp;from 2 to lower 4 hours (2)</p>
+<p>-&nbsp;from 4 to lower 6 hours (3)</p>
+<p>-&nbsp;from 6 to lower 8 hours (4)</p>
+<p>- over 8 hour (5)</p>
+<p>Right side:</p>
+<p>Boxplot Display the median, interquartile range and outliers.</p>
+<p>Used to compare the central tendency and dispersion of each variable between the two sexes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Exam_ridge <span class="ot">&lt;-</span> Exam <span class="sc">%&gt;%</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gender, Quality_Lecturer, Study_Methods, Time_Studying) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Gender, <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gender =</span> <span class="fu">factor</span>(Gender),</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Variable =</span> <span class="fu">factor</span>(Variable,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Quality_Lecturer"</span>,<span class="st">"Study_Methods"</span>,<span class="st">"Time_Studying"</span>)),</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Value =</span> <span class="fu">as.numeric</span>(Value)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Exam_ridge, <span class="fu">aes</span>(<span class="at">x =</span> Value, <span class="at">y =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">scale =</span> <span class="fl">1.1</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Variable, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ridgeline by Gender"</span>, <span class="at">x =</span> <span class="st">"Score (1–5)"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Exam_ridge, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Value, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.55</span>, <span class="at">outlier.alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Variable, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplots by Gender"</span>, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Score"</span>) <span class="sc">+</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.186</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.19</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 0.183</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>conclusion:</p>
+<p>Quality_Lecturer: The overall scores given by both genders are relatively high, with a distribution that is close and not significantly different, indicating that the evaluation of teachers’ quality is becoming more consistent.</p>
+<p>Study_Methods :The median of gender 1 is slightly higher and the distribution is more concentrated, indicating that this group is generally better in the evaluation of learning methods.</p>
+<p>Time_Studying: The two groups were mainly concentrated in the high-score range (4–5), with a small difference, indicating that the time spent on learning was similar.</p>
+<p>Overall, there are certain differences in learning methods between genders, but the influence on teaching evaluation and study time is limited. The degree of difference is not significant, falling within the range of moderate to weak differences.</p>
+</section>
+<section id="the-distribution-differences-in-learning-behaviors-among-different-gpa-groups-and-the-proportion-structure-of-high-and-low-learning-levels-were-studied." class="level3">
+<h3 class="anchored" data-anchor-id="the-distribution-differences-in-learning-behaviors-among-different-gpa-groups-and-the-proportion-structure-of-high-and-low-learning-levels-were-studied.">3.6 The distribution differences in learning behaviors among different GPA groups and the proportion structure of high and low learning levels were studied.</h3>
+<p>Left: Box Plot (Distribution of Study Methods by GPA)</p>
+<ul>
+<li><p>The box represents the interquartile range.</p></li>
+<li><p>The median line represents the central tendency.</p></li>
+<li><p>Outliers indicate individual extreme ratings.</p></li>
+<li><p>X: GPA 1-5 :</p></li>
+</ul>
+<p>-&nbsp;Under 2.0 – Poor (1)</p>
+<p>-&nbsp;From 2.0 to lower 2.5 – Average (2)</p>
+<p>-&nbsp;From 2.5 to lower 3.2 – Fair (3)</p>
+<p>-&nbsp;From 3.2 to lower &nbsp;3.6 – Good (4)</p>
+<p>- Over 3.6 – Excellent (5)</p>
+<ul>
+<li>Y: Study Methods Score</li>
+</ul>
+<p>-&nbsp;Not at all (1)</p>
+<p>-&nbsp;Little (2)</p>
+<p>-&nbsp;Moderate (3)</p>
+<p>-&nbsp;Quite (4)</p>
+<p>- Very (5)</p>
+<p>It is used to compare the distribution differences in the scores of learning methods among different GPA groups.</p>
+<p>Right side: Proportion of Study Levels by GPA (Heatmap)</p>
+<p>The depth of the color indicates the proportion of the learning investment level within the GPA group.</p>
+<p>The darker the color, the higher the proportion.</p>
+<p>X: GPA</p>
+<p>Y: Study Level</p>
+<p>To observe the structural changes in the intensity of learning investment among different GPA groups.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>Exam2 <span class="ot">&lt;-</span> Exam <span class="sc">%&gt;%</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">GPA =</span> <span class="fu">factor</span>(GPA, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Study_Level =</span> <span class="fu">case_when</span>(</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>      Study_Methods <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Low"</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>      Study_Methods <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Moderate"</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>      Study_Methods <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"High"</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(Exam2,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> GPA,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Study_Methods,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> GPA)) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Study Methods by GPA"</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"GPA Group"</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Study Methods Score"</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>heat_data <span class="ot">&lt;-</span> Exam2 <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(GPA, Study_Level) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'GPA'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(heat_data,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> GPA,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Study_Level,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> prop)) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"#dceaf6"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">high =</span> <span class="st">"#2c7fb8"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Proportion of Study Level by GPA"</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"GPA Group"</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Study Level"</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Proportion"</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-Home-Exercise1_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Conclusion:</p>
+<p>From the box plot on the left, it can be seen that as the GPA grade increases, the median score of learning methods gradually rises. The high GPA group (4–5) has a higher overall score and a more concentrated distribution. The heat map on the right shows that the proportion of “High” learning engagement in the high GPA group is significantly higher, while the “Low” engagement proportion is relatively larger in the low GPA group. The overall trend indicates that both learning strategies and learning intensity have a positive relationship with academic performance, and the improvement in the score of learning methods has a relatively consistent change trend with the improvement in grades.</p>
+</section>
+</section>
+<section id="summary-and-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-conclusion">4 Summary and conclusion</h2>
+<p>In this exercise, we conducted a relatively comprehensive visual analysis to study the relationship between learning behavior and academic performance, among other aspects. During this process, we utilized various methods such as scatter plots, ridge plots, box plots, and heat maps to explore the relationships among different PGA groups, learning methods, learning time, and other variables.</p>
+<p>The analysis revealed that efficient learning methods and high levels of learning engagement are positively correlated with excellent academic performance. There is only a weak negative correlation between social media usage and GPA. Therefore, parents might consider allowing their children some relaxation time in moderation. More importantly, this exercise reinforced my understanding of choosing visualization methods based on data types and analysis purposes. It enabled me to better grasp how to construct visualization structures to effectively convey research findings.</p>
+<p>Overall, this project enhanced my analytical reasoning skills and strengthened my proficiency in using R language and visualization techniques.</p>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">5 Reference</h2>
+<p>Kam, Tin Seong. (2023). Visualising Distribution.&nbsp;<em>R for Visual Analytics.</em>&nbsp;<a href="https://r4va.netlify.app/chap09" class="uri">https://r4va.netlify.app/chap09</a></p>
+<p><a href="https://akalestale.netlify.app/take-home_ex/take-home_ex01/take-home_ex01" class="uri">https://akalestale.netlify.app/take-home_ex/take-home_ex01/take-home_ex01</a></p>
+<p><a href="https://jingyi-vaa.netlify.app/take-home_ex/take-home_ex01/take-home_ex01" class="uri">https://jingyi-vaa.netlify.app/take-home_ex/take-home_ex01/take-home_ex01</a></p>
+<p><a href="https://isss608-jayageorge.netlify.app/take-home_ex/take-home_ex01/take-home_ex01" class="uri">https://isss608-jayageorge.netlify.app/take-home_ex/take-home_ex01/take-home_ex01</a></p>
+<p><a href="https://akalestale.netlify.app/take-home_ex/take-home_ex01/take-home_ex01" class="uri">https://akalestale.netlify.app/take-home_ex/take-home_ex01/take-home_ex01</a></p>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

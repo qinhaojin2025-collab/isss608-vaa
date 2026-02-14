@@ -51,6 +51,13 @@ website:
                 href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05d.html"
               - text: "Exercise 5e"
                 href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05e.html"
+                
+                
+      - section: "Take Home Exercise "
+        contents:
+          - text: "Hands-on Exercise 1"
+            href: "Take home exercise/Take Home Exercise1/Take Home Exercise1.html"
+
 
 format:
   html:
