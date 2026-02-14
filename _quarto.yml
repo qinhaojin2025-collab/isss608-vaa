@@ -56,7 +56,7 @@ website:
       - section: "Take Home Exercise "
         contents:
           - text: "Hands-on Exercise 1"
-            href: "Take home exercise/Take Home Exercise1/Take Home Exercise1.html"
+            href: "Take-home-exercise/Take-Home-Exercise1/Take-Home-Exercise1.html"
 
 
 format:
