@@ -1,6 +1,16 @@
 ---
 title: "Take Home Exercise 1"
 author: "JIN QINHAO"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    page-layout: full
+execute:
+  warning: false
+  message: false
 ---
 
 # Visual-driven investigation and analysis:
