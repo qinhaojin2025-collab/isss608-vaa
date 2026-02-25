@@ -38,7 +38,7 @@ website:
                 href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04c.html"
               - text: "Exercise 4d"
                 href: "Hands-on-Ex/Hands-on_Ex04/Hands-on_Ex04d.html"
-
+                
           - section: "Hands-on Exercise 5"
             contents:
               - text: "Exercise 5a"
@@ -51,6 +51,11 @@ website:
                 href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05d.html"
               - text: "Exercise 5e"
                 href: "Hands-on-Ex/Hands-on_Ex05/Hands-on_Ex05e.html"
+                
+          - section: "Hands-on Exercise 6"
+            contents:
+              - text: "Exercise 6"
+                href: "Hands-on-Ex/Hands-on_Ex06/Hands-on_Ex06.html"
                 
                 
       - section: "Take Home Exercise "

@@ -1,0 +1,13 @@
+name: shiny
+title: shiny
+username: jqh010809
+account: jqh010809
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16729697
+bundleId: 11610432
+url: https://jqh010809.shinyapps.io/shiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: prototype-ShinyIDEA/app.R|prototype-ShinyIDEA/data/Exam_data.csv
