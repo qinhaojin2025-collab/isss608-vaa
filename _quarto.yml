@@ -57,6 +57,14 @@ website:
               - text: "Exercise 6"
                 href: "Hands-on-Ex/Hands-on_Ex06/Hands-on_Ex06.html"
                 
+          - section: "Hands-on Exercise 7"
+            contents:
+              - text: "Exercise 7a"
+                href: "Hands-on-Ex/Hands-on_Ex07/Hands-on_Ex07a.html"
+              - text: "Exercise 7b"
+                href: "Hands-on-Ex/Hands-on_Ex07/Hands-on_Ex07b.html"
+              - text: "Exercise 7c"
+                href: "Hands-on-Ex/Hands-on_Ex07/Hands-on_Ex07c.html"      
                 
       - section: "Take Home Exercise "
         contents:
