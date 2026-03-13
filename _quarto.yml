@@ -77,6 +77,8 @@ website:
         contents:
           - text: "Hands-on Exercise 1"
             href: "Take-home-exercise/Take-Home-Exercise1/Take-Home-Exercise1.html"
+          - text: "Hands-on Exercise 2"
+            href: "Take-home-exercise/Take-Home-Exercise2/Take-Home-Exercise2.html"
 
         
 
