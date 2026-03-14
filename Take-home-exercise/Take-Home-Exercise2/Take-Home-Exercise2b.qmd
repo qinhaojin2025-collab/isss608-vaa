@@ -1,0 +1,274 @@
+---
+title: "Visualization of classification trees "
+author: "JIN QINHAO"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    code-summary: "Show the code"
+    page-layout: full
+execute:
+  warning: false
+  message: false
+---
+
+# **Visualization of classification trees** 
+
+# 1Classification tree analysis
+
+## 1.1Install and launch the required R packages
+
+```{r}
+pacman::p_load(
+  tidyverse,
+  rpart,
+  rpart.plot,
+  caret,
+  visNetwork,
+  htmlwidgets,
+  sparkline
+)
+```
+
+```{r}
+base_dir <- "D:/GitHub/Qinhao/ISSS608-VAA/Take-home-exercise/Take-Home-Exercise2"
+data_path <- file.path(base_dir, "data", "tourism_decision_tree_ready.csv")
+output_dir <- file.path(base_dir, "outputs")
+
+dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+
+```
+
+## 1.2Reading data
+
+```{r}
+df <- readr::read_csv(data_path, show_col_types = FALSE) %>%
+  mutate(
+    date = as.Date(date),
+    month = factor(
+      month,
+      levels = 1:12,
+      labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+    ),
+    quarter = factor(quarter),
+    period = factor(period, levels = c("pre_covid", "covid_shock", "recovery")),
+    dataset_split = factor(dataset_split, levels = c("train", "test")),
+    hotel_occ_level_tertile = factor(
+      hotel_occ_level_tertile,
+      levels = c("low", "medium", "high")
+    ),
+
+    # 为了让树图上的阈值更易读，创建展示型变量
+    arrivals_million = visitor_arrivals / 1000000,
+    china_share_pct = china_share * 100,
+    stay_days = avg_stay_monthly_capped
+  )
+
+glimpse(df)
+
+
+```
+
+## 1.3Split the dataset into training and testing sets
+
+```{r}
+train_df <- df %>% filter(dataset_split == "train")
+test_df  <- df %>% filter(dataset_split == "test")
+
+cat("Train rows:", nrow(train_df), "\n")
+cat("Test rows:", nrow(test_df), "\n")
+
+```
+
+## 1.4Build classification tree
+
+Target variable: Hotel occupancy rate level (low / medium / high)
+
+Independent variables: \# arrivals_million = Total inbound tourists (in millions)
+
+china_share_pct = Proportion of Chinese tourists (percentage)
+
+stay_days = Truncated average length of stay
+
+month = Month (seasonality)
+
+```{r}
+fit_tree <- rpart::rpart(
+  hotel_occ_level_tertile ~ arrivals_million + china_share_pct + stay_days + month,
+  data = train_df,
+  method = "class",
+  parms = list(split = "gini"),
+  control = rpart::rpart.control(
+    cp = 0.005,
+    maxdepth = 4,
+    minsplit = 10,
+    minbucket = 5,
+    xval = 10
+  )
+)
+
+```
+
+## 1.5Check the complexity parameter table.
+
+```{r}
+printcp(fit_tree)
+plotcp(fit_tree)
+```
+
+## 1.6Prune the tree
+
+```{r}
+
+bestcp <- fit_tree$cptable[which.min(fit_tree$cptable[, "xerror"]), "CP"]
+pruned_tree <- prune(fit_tree, cp = bestcp)
+
+cat("Best cp:", bestcp, "\n")
+print(pruned_tree)
+```
+
+## 1.7Interactive tree visualization
+
+```{r}
+tree_vis <- visNetwork::visTree(
+  pruned_tree,
+  data = as.data.frame(train_df),
+  main = "Decision Tree for Hotel Occupancy Level",
+  submain = "Target: low / medium / high",
+  width = "100%",
+  height = "700px",
+  nodesFontSize = 16,
+  edgesFontSize = 14,
+  fallenLeaves = TRUE,
+  legend = TRUE,
+  nodesPopSize = TRUE,
+  minNodeSize = 14,
+  maxNodeSize = 32,
+  highlightNearest = list(enabled = TRUE, hover = TRUE),
+  export = TRUE
+)
+
+tree_vis
+
+```
+
+```{r}
+htmlwidgets::saveWidget(
+  tree_vis,
+  file.path(output_dir, "decision_tree_visual.html"),
+  selfcontained = FALSE
+)
+
+```
+
+## 1.8Static tree visualization for report
+
+```{r}
+png(
+  filename = file.path(output_dir, "decision_tree_static.png"),
+  width = 1800,
+  height = 1200,
+  res = 180
+)
+
+rpart.plot::rpart.plot(
+  pruned_tree,
+  type = 2,
+  extra = 104,
+  under = TRUE,
+  fallen.leaves = TRUE,
+  faclen = 0,
+  tweak = 1.15,
+  main = "Decision Tree for Hotel Occupancy Level"
+)
+
+dev.off()
+
+```
+
+## 1.9Predict on test set
+
+```{r}
+pred_class <- predict(pruned_tree, newdata = test_df, type = "class")
+pred_prob  <- predict(pruned_tree, newdata = test_df, type = "prob") %>%
+  as.data.frame()
+
+# 统一 levels，避免 confusionMatrix 报错
+pred_class <- factor(pred_class, levels = c("low", "medium", "high"))
+test_df$hotel_occ_level_tertile <- factor(
+  test_df$hotel_occ_level_tertile,
+  levels = c("low", "medium", "high")
+)
+
+```
+
+## 1.10Evaluate model performance
+
+```{r}
+cm <- caret::confusionMatrix(
+  data = pred_class,
+  reference = test_df$hotel_occ_level_tertile
+)
+
+print(cm)
+
+metrics_tbl <- tibble(
+  metric = c("accuracy", "kappa"),
+  value = c(cm$overall[["Accuracy"]], cm$overall[["Kappa"]])
+)
+
+print(metrics_tbl)
+
+```
+
+## 1.11Variable importance
+
+```{r}
+importance_tbl <- tibble(
+  variable = names(pruned_tree$variable.importance),
+  importance = as.numeric(pruned_tree$variable.importance)
+) %>%
+  arrange(desc(importance))
+
+print(importance_tbl)
+```
+
+## 1.12Export results
+
+```{r}
+write.csv(
+  as.data.frame(cm$table),
+  file.path(output_dir, "decision_tree_confusion_matrix.csv"),
+  row.names = FALSE
+)
+
+write.csv(
+  metrics_tbl,
+  file.path(output_dir, "decision_tree_metrics.csv"),
+  row.names = FALSE
+)
+
+write.csv(
+  importance_tbl,
+  file.path(output_dir, "decision_tree_variable_importance.csv"),
+  row.names = FALSE
+)
+
+prediction_tbl <- bind_cols(
+  test_df %>% select(date, hotel_occ, hotel_occ_level_tertile),
+  tibble(predicted_class = pred_class),
+  pred_prob
+)
+
+write.csv(
+  prediction_tbl,
+  file.path(output_dir, "decision_tree_test_predictions.csv"),
+  row.names = FALSE
+)
+
+cat("Decision tree analysis complete.\n")
+cat("Outputs saved to:", output_dir, "\n")
+```
