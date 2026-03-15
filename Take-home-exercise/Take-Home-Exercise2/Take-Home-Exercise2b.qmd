@@ -36,8 +36,22 @@ pacman::p_load(
 base_dir <- "D:/GitHub/Qinhao/ISSS608-VAA/Take-home-exercise/Take-Home-Exercise2"
 data_path <- file.path(base_dir, "data", "tourism_decision_tree_ready.csv")
 output_dir <- file.path(base_dir, "outputs")
+artifact_export_enabled <- identical(
+  tolower(Sys.getenv("WRITE_TAKE_HOME_EX2_ARTIFACTS", "false")),
+  "true"
+)
 
-dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+export_note <- function(path_label) {
+  message(
+    "Artifact export skipped during render. ",
+    "Set WRITE_TAKE_HOME_EX2_ARTIFACTS=true to regenerate tracked files under: ",
+    path_label
+  )
+}
+
+if (artifact_export_enabled) {
+  dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+}
 
 ```
 
@@ -156,36 +170,44 @@ tree_vis
 ```
 
 ```{r}
-htmlwidgets::saveWidget(
-  tree_vis,
-  file.path(output_dir, "decision_tree_visual.html"),
-  selfcontained = FALSE
-)
+if (artifact_export_enabled) {
+  htmlwidgets::saveWidget(
+    tree_vis,
+    file.path(output_dir, "decision_tree_visual.html"),
+    selfcontained = FALSE
+  )
+} else {
+  export_note(output_dir)
+}
 
 ```
 
 ## 1.8Static tree visualization for report
 
 ```{r}
-png(
-  filename = file.path(output_dir, "decision_tree_static.png"),
-  width = 1800,
-  height = 1200,
-  res = 180
-)
+if (artifact_export_enabled) {
+  png(
+    filename = file.path(output_dir, "decision_tree_static.png"),
+    width = 1800,
+    height = 1200,
+    res = 180
+  )
 
-rpart.plot::rpart.plot(
-  pruned_tree,
-  type = 2,
-  extra = 104,
-  under = TRUE,
-  fallen.leaves = TRUE,
-  faclen = 0,
-  tweak = 1.15,
-  main = "Decision Tree for Hotel Occupancy Level"
-)
+  rpart.plot::rpart.plot(
+    pruned_tree,
+    type = 2,
+    extra = 104,
+    under = TRUE,
+    fallen.leaves = TRUE,
+    faclen = 0,
+    tweak = 1.15,
+    main = "Decision Tree for Hotel Occupancy Level"
+  )
 
-dev.off()
+  dev.off()
+} else {
+  export_note(output_dir)
+}
 
 ```
 
@@ -239,36 +261,41 @@ print(importance_tbl)
 ## 1.12Export results
 
 ```{r}
-write.csv(
-  as.data.frame(cm$table),
-  file.path(output_dir, "decision_tree_confusion_matrix.csv"),
-  row.names = FALSE
-)
-
-write.csv(
-  metrics_tbl,
-  file.path(output_dir, "decision_tree_metrics.csv"),
-  row.names = FALSE
-)
-
-write.csv(
-  importance_tbl,
-  file.path(output_dir, "decision_tree_variable_importance.csv"),
-  row.names = FALSE
-)
-
 prediction_tbl <- bind_cols(
   test_df %>% select(date, hotel_occ, hotel_occ_level_tertile),
   tibble(predicted_class = pred_class),
   pred_prob
 )
 
-write.csv(
-  prediction_tbl,
-  file.path(output_dir, "decision_tree_test_predictions.csv"),
-  row.names = FALSE
-)
+if (artifact_export_enabled) {
+  write.csv(
+    as.data.frame(cm$table),
+    file.path(output_dir, "decision_tree_confusion_matrix.csv"),
+    row.names = FALSE
+  )
 
-cat("Decision tree analysis complete.\n")
-cat("Outputs saved to:", output_dir, "\n")
+  write.csv(
+    metrics_tbl,
+    file.path(output_dir, "decision_tree_metrics.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    importance_tbl,
+    file.path(output_dir, "decision_tree_variable_importance.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    prediction_tbl,
+    file.path(output_dir, "decision_tree_test_predictions.csv"),
+    row.names = FALSE
+  )
+
+  cat("Decision tree analysis complete.\n")
+  cat("Outputs saved to:", output_dir, "\n")
+} else {
+  cat("Decision tree analysis complete.\n")
+  export_note(output_dir)
+}
 ```

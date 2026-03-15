@@ -35,8 +35,22 @@ pacman::p_load(
 base_dir <- "D:/GitHub/Qinhao/ISSS608-VAA/Take-home-exercise/Take-Home-Exercise2"
 raw_path <- file.path(base_dir, "data", "Name your insight (2).xlsx")
 processed_dir <- file.path(base_dir, "data")
+artifact_export_enabled <- identical(
+  tolower(Sys.getenv("WRITE_TAKE_HOME_EX2_ARTIFACTS", "false")),
+  "true"
+)
 
-dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
+export_note <- function(path_label) {
+  message(
+    "Artifact export skipped during render. ",
+    "Set WRITE_TAKE_HOME_EX2_ARTIFACTS=true to regenerate tracked files under: ",
+    path_label
+  )
+}
+
+if (artifact_export_enabled) {
+  dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
+}
 ```
 
 ## 1.3Read the original data
@@ -163,18 +177,22 @@ decision_tree_ready <- analysis_ready %>%
 ## 1.9Export the cleaned data
 
 ```{r}
-readr::write_csv(monthly_clean, file.path(processed_dir, "tourism_monthly_clean.csv"))
-readr::write_csv(decision_tree_ready, file.path(processed_dir, "tourism_decision_tree_ready.csv"))
-readr::write_csv(analysis_ready, file.path(processed_dir, "tourism_four_part_analysis_ready.csv"))
+if (artifact_export_enabled) {
+  readr::write_csv(monthly_clean, file.path(processed_dir, "tourism_monthly_clean.csv"))
+  readr::write_csv(decision_tree_ready, file.path(processed_dir, "tourism_decision_tree_ready.csv"))
+  readr::write_csv(analysis_ready, file.path(processed_dir, "tourism_four_part_analysis_ready.csv"))
 
-writexl::write_xlsx(
-  list(
-    monthly_clean = monthly_clean,
-    decision_tree_ready = decision_tree_ready,
-    analysis_ready_all = analysis_ready
-  ),
-  path = file.path(processed_dir, "tourism_four_part_analysis_ready.xlsx")
-)
+  writexl::write_xlsx(
+    list(
+      monthly_clean = monthly_clean,
+      decision_tree_ready = decision_tree_ready,
+      analysis_ready_all = analysis_ready
+    ),
+    path = file.path(processed_dir, "tourism_four_part_analysis_ready.xlsx")
+  )
+} else {
+  export_note(processed_dir)
+}
 
 
 ```

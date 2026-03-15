@@ -34,8 +34,22 @@ pacman::p_load(
 base_dir <- "D:/GitHub/Qinhao/ISSS608-VAA/Take-home-exercise/Take-Home-Exercise2"
 data_path <- file.path(base_dir, "data", "tourism_decision_tree_ready.csv")
 output_dir <- file.path(base_dir, "outputs")
+artifact_export_enabled <- identical(
+  tolower(Sys.getenv("WRITE_TAKE_HOME_EX2_ARTIFACTS", "false")),
+  "true"
+)
 
-dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+export_note <- function(path_label) {
+  message(
+    "Artifact export skipped during render. ",
+    "Set WRITE_TAKE_HOME_EX2_ARTIFACTS=true to regenerate tracked files under: ",
+    path_label
+  )
+}
+
+if (artifact_export_enabled) {
+  dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
+}
 
 ```
 
@@ -174,13 +188,17 @@ conf_plot <- ggplot(conf_tbl, aes(x = Reference, y = Prediction, fill = Freq)) +
 
 print(conf_plot)
 
-ggsave(
-  filename = file.path(output_dir, "random_forest_confusion_heatmap.png"),
-  plot = conf_plot,
-  width = 8,
-  height = 6,
-  dpi = 200
-)
+if (artifact_export_enabled) {
+  ggsave(
+    filename = file.path(output_dir, "random_forest_confusion_heatmap.png"),
+    plot = conf_plot,
+    width = 8,
+    height = 6,
+    dpi = 200
+  )
+} else {
+  export_note(output_dir)
+}
 ```
 
 ## 2.5Variable importance plot
@@ -200,13 +218,17 @@ importance_plot <- importance_tbl %>%
 
 print(importance_plot)
 
-ggsave(
-  filename = file.path(output_dir, "random_forest_importance.png"),
-  plot = importance_plot,
-  width = 8,
-  height = 6,
-  dpi = 200
-)
+if (artifact_export_enabled) {
+  ggsave(
+    filename = file.path(output_dir, "random_forest_importance.png"),
+    plot = importance_plot,
+    width = 8,
+    height = 6,
+    dpi = 200
+  )
+} else {
+  export_note(output_dir)
+}
 
 ```
 
@@ -248,13 +270,17 @@ oob_plot <- ggplot(oob_tbl, aes(x = num_trees, y = oob_accuracy)) +
 
 print(oob_plot)
 
-ggsave(
-  filename = file.path(output_dir, "random_forest_oob_accuracy.png"),
-  plot = oob_plot,
-  width = 8,
-  height = 6,
-  dpi = 200
-)
+if (artifact_export_enabled) {
+  ggsave(
+    filename = file.path(output_dir, "random_forest_oob_accuracy.png"),
+    plot = oob_plot,
+    width = 8,
+    height = 6,
+    dpi = 200
+  )
+} else {
+  export_note(output_dir)
+}
 ```
 
 ## 2.7Actual vs predicted over time
@@ -284,54 +310,63 @@ pred_plot <- ggplot(pred_plot_df, aes(x = date, y = level, color = series, shape
 
 print(pred_plot)
 
-ggsave(
-  filename = file.path(output_dir, "random_forest_actual_vs_predicted.png"),
-  plot = pred_plot,
-  width = 9,
-  height = 5,
-  dpi = 200
-)
+if (artifact_export_enabled) {
+  ggsave(
+    filename = file.path(output_dir, "random_forest_actual_vs_predicted.png"),
+    plot = pred_plot,
+    width = 9,
+    height = 5,
+    dpi = 200
+  )
+} else {
+  export_note(output_dir)
+}
 ```
 
 ## 2.8Export results
 
 ```{r}
-write.csv(
-  metrics_tbl,
-  file.path(output_dir, "random_forest_metrics.csv"),
-  row.names = FALSE
-)
-
-write.csv(
-  conf_tbl,
-  file.path(output_dir, "random_forest_confusion_matrix.csv"),
-  row.names = FALSE
-)
-
-write.csv(
-  importance_tbl,
-  file.path(output_dir, "random_forest_variable_importance.csv"),
-  row.names = FALSE
-)
-
-write.csv(
-  oob_tbl,
-  file.path(output_dir, "random_forest_oob_accuracy.csv"),
-  row.names = FALSE
-)
-
 prediction_tbl <- bind_cols(
   test_df %>% select(date, hotel_occ_level_tertile),
   tibble(predicted_class = pred_class),
   pred_prob
 )
 
-write.csv(
-  prediction_tbl,
-  file.path(output_dir, "random_forest_test_predictions.csv"),
-  row.names = FALSE
-)
+if (artifact_export_enabled) {
+  write.csv(
+    metrics_tbl,
+    file.path(output_dir, "random_forest_metrics.csv"),
+    row.names = FALSE
+  )
 
-cat("Random forest analysis complete.\n")
-cat("Outputs saved to:", output_dir, "\n")
+  write.csv(
+    conf_tbl,
+    file.path(output_dir, "random_forest_confusion_matrix.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    importance_tbl,
+    file.path(output_dir, "random_forest_variable_importance.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    oob_tbl,
+    file.path(output_dir, "random_forest_oob_accuracy.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    prediction_tbl,
+    file.path(output_dir, "random_forest_test_predictions.csv"),
+    row.names = FALSE
+  )
+
+  cat("Random forest analysis complete.\n")
+  cat("Outputs saved to:", output_dir, "\n")
+} else {
+  cat("Random forest analysis complete.\n")
+  export_note(output_dir)
+}
 ```
