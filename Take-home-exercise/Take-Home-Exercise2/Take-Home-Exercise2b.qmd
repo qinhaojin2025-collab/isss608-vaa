@@ -14,7 +14,7 @@ execute:
   message: false
 ---
 
-# **Visualization of classification trees** 
+# **Visualization of classification trees**
 
 # 1Classification tree analysis
 
